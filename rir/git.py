@@ -68,7 +68,7 @@ class Git(Config):
             self.settings['registry'][org]['path']
         )
 
-        git_repo_pack, err, rc = run(command=cmd.split())
+        git_repo_pack, _err, _rc = run(command=cmd.split())
         result = self.__service_data(service=service)
         result += git_repo_pack.decode()
 
@@ -79,7 +79,7 @@ class Git(Config):
         cmd = "git-upload-pack --stateless-rpc {}/index".format(
             self.settings['registry'][org]['path']
         )
-        result, err, rc = run(command=cmd.split(), std_in=msg)
+        result, _err, _rc = run(command=cmd.split(), std_in=msg)
         return result
 
     def __service_data(self, service):

@@ -45,8 +45,8 @@ app = Bottle()
 
 @app.get('/<org>/crates/<name>/<version>/download')
 def crate(org, name, version):
-    crate = "{}-{}.crate".format(name, version)
-    return static_file(crate, root=config['registry'][org]['path'])
+    filename = "{}-{}.crate".format(name, version)
+    return static_file(filename, root=config['registry'][org]['path'])
 
 @app.get('/status')
 def status():
@@ -57,4 +57,3 @@ def status():
 # --------------------------------------------------------------------------- #
 
 # EOF
-
