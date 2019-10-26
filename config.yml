@@ -1,0 +1,14 @@
+---
+api:
+  host: 0.0.0.0
+  port: 8080
+  workers: 5
+  reloader: yes
+  debug: yes
+  worker: meinheld
+
+registry:
+  rust-registry-index:
+    url: git@github.com:lmn/rust-registry-index.git
+    path: registry/cache/rust-registry-index
+

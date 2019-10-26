@@ -1,0 +1,6 @@
+[source.crates-io]
+registry = 'https://github.com/rust-lang/crates.io-index'
+replace-with = "{{org}}"
+
+[source.{{org}}]
+registry = "{{host.scheme}}://{{host.netloc}}/api/v1/{{org}}"
