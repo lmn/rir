@@ -44,6 +44,7 @@ DEPENDENCIES = "deps.txt"
 REGISTRY_LOCK = "registry/repository"
 REGISTRY_CACHE = "registry/cache"
 
+
 # --------------------------------------------------------------------------- #
 # Tasks
 # --------------------------------------------------------------------------- #
@@ -55,12 +56,12 @@ def create_cargo_registry(ctx, name):
 
 @task
 def create_cargo_registry_pull(ctx, name):
-    """ Create Registry  """
+    """ GIT Pull from Custom Registry repository  """
     ctx.run(f"cd {REGISTRY_LOCK}/{name}; git pull")
 
 @task
 def clone_repository_indexer(ctx):
-    """ Create Registry  """
+    """ Create Internal Repository and Pull  """
     for key, value in config['registry'].items():
         if not os.path.isdir(f"{REGISTRY_LOCK}/{key}"):
             ctx.run(f"git clone {value['url']} {REGISTRY_LOCK}/{key}")
@@ -72,7 +73,7 @@ def clone_repository_indexer(ctx):
 
 @task
 def create_cargo_generate_cache(ctx, name):
-    """ Create Registry  """
+    """ Create Registry Cache """
     ctx.run(f"cd  {REGISTRY_LOCK}/{name} && cargo fetch")
 
     ctx.run(f"cargo local-registry --sync {REGISTRY_LOCK}/{name}/Cargo.lock"
