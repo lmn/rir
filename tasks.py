@@ -106,11 +106,11 @@ def lint(ctx):
 def bump(ctx):
     """ Git Auto bumper by Branchname """
     branch = ctx.run("git rev-parse --abbrev-ref HEAD")
-    if branch is "master":
+    if branch == "master":
         ctx.run("bumpversion minor")
-    elif branch is "develop":
+    elif branch == "develop":
         ctx.run("bumpversion patch")
-    elif branch is "release":
+    elif branch == "release":
         ctx.run("bumpversion major")
 
 # --------------------------------------------------------------------------- #
