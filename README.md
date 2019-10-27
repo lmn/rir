@@ -13,7 +13,7 @@ RIR is a simple idea (POC) how you can generate a internal Rust Registry based u
 Install Dependencies
 
 ~~~sh
-$ make install & make deps
+$ make install && make deps
 ~~~
 
 Start API
