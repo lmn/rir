@@ -4,8 +4,7 @@ api:
   port: 8080
   workers: 5
   reloader: yes
-  debug: no
-  worker: meinheld
+  debug: yes
 
 registry:
   rust-registry-index:
